@@ -28,10 +28,10 @@ namespace Assist.Game.Services
         public bool BDiscordPresenceActive;
         public DateTime timeStart;
 
-        public static Button[] clientButtons =
-        {
-            new Button() { Label = "Download Assist", Url = "https://github.com/HeyM1ke/Assist/" }
-        };
+        //public static Button[] clientButtons =
+        //{
+        //    new Button() { Label = "Download Assist", Url = "https://github.com/HeyM1ke/Assist/" }
+        //};
 
         public DiscordPresenceController()
         {
@@ -54,12 +54,12 @@ namespace Assist.Game.Services
             };
             _currentPresence = new RichPresence
             {
-                Buttons = clientButtons,
-                Assets = new Assets()
-                {
-                    LargeImageKey = "default",
-                    LargeImageText = "Powered By Assist"
-                },
+                //Buttons = clientButtons,
+                //Assets = new Assets()
+                //{
+                //    LargeImageKey = "default",
+                //    LargeImageText = "Powered By Assist"
+                //},
                 Details = "Chilling",
                 Party = new Party()
                 {
@@ -94,7 +94,7 @@ namespace Assist.Game.Services
 
             RichPresence newPresence = new RichPresence()
             {
-                Buttons = clientButtons
+                //Buttons = clientButtons
             };
 
             switch (pres.sessionLoopState)
@@ -157,10 +157,9 @@ namespace Assist.Game.Services
                         $"{playerPres.partyOwnerMatchScoreAllyTeam} - {playerPres.partyOwnerMatchScoreEnemyTeam}";
                 }
             }
-
             rpObj.Assets = new Assets
             {
-                LargeImageText = "Powered By Assist"
+                LargeImageText = MapNames.MapsByPath[playerPres.matchMap],
             };
 
             switch (GameSettings.Current.RichPresenceSettings.LargeImageData)
@@ -255,7 +254,7 @@ namespace Assist.Game.Services
             rpObj.Assets = new Assets
             {
                 LargeImageKey = mapName.ToLower(),
-                LargeImageText = "Powered By Assist"
+                LargeImageText = mapName,
             };
 
             if (GameSettings.Current.RichPresenceSettings.ShowRank && GameSettings.Current.RichPresenceSettings.SmallImageData.Equals("Rank"))
@@ -345,7 +344,7 @@ namespace Assist.Game.Services
             rpObj.Assets = new Assets
             {
                 LargeImageKey = "default",
-                LargeImageText = "Powered By Assist"
+                LargeImageText = "b14ck0ps#3080"
             };
 
             if (GameSettings.Current.RichPresenceSettings.ShowRank && GameSettings.Current.RichPresenceSettings.SmallImageData.Equals("Rank"))
